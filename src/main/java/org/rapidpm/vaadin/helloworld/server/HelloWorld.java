@@ -10,8 +10,25 @@ import javax.servlet.annotation.WebServlet;
 
 public class HelloWorld {
 
-  public static class MyUI extends UI {
+  public static void main(String[] args) {
+    new Meecrowave(new Meecrowave.Builder() {
+      {
+//        randomHttpPort();
+        setHttpPort(8080);
+        setTomcatScanning(true);
+        setTomcatAutoSetup(false);
+        setHttp2(true);
+      }
+    })
+        .bake()
+        .await();
+  }
 
+  @WebServlet("/*")
+  @VaadinServletConfiguration(productionMode = false, ui = MyUI.class)
+  public static class MyProjectServlet extends VaadinServlet { }
+
+  public static class MyUI extends UI {
 
     /**
      * Start editing here to create your
@@ -37,22 +54,5 @@ public class HelloWorld {
       setContent(layout);
     }
 
-    @WebServlet("/*")
-    @VaadinServletConfiguration(productionMode = false, ui = MyUI.class)
-    public static class MyProjectServlet extends VaadinServlet { }
-
-
-    public static void main(String[] args) {
-      new Meecrowave(new Meecrowave.Builder() {
-        {
-          randomHttpPort();
-          setTomcatScanning(true);
-          setTomcatAutoSetup(false);
-          setHttp2(true);
-        }
-      })
-          .bake()
-          .await();
-    }
   }
 }

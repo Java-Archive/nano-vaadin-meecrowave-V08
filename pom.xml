@@ -90,7 +90,6 @@
   </properties>
 
 
-
   <dependencyManagement>
     <dependencies>
       <!--Vaadin -->
@@ -123,8 +122,6 @@
       <artifactId>meecrowave-core</artifactId>
       <version>${meecrowave.version}</version>
     </dependency>
-
-
     <!--TDD Extension for Meecrowave-->
     <dependency>
       <groupId>org.apache.meecrowave</groupId>
@@ -153,6 +150,8 @@
       <artifactId>vaadin-push</artifactId>
     </dependency>
 
+
+
     <!--TDD-->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -162,30 +161,24 @@
     </dependency>
   </dependencies>
 
-<build>
-  <plugins>
-    <plugin>
-      <!--
-        Dieses Plugin erlaubt es uns die Applikation einfach mittels der folgenden cmd line zu Starten:
-        $> mvn clean install meecrowave:run
-        Zum Debuggen verwenden wir:
-        $> mvnDebug meecrowave:run
-      -->
-      <groupId>org.apache.meecrowave</groupId>
-      <artifactId>meecrowave-maven-plugin</artifactId>
-      <version>${meecrowave.version}</version>
-    </plugin>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.meecrowave</groupId>
+        <artifactId>meecrowave-maven-plugin</artifactId>
+        <version>${meecrowave.version}</version>
+      </plugin>
 
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-war-plugin</artifactId>
-      <version>3.2.1</version>
-      <configuration>
-        <!-- das brauchts leider, sonst muessen wir ein web.xml tippen... -->
-        <failOnMissingWebXml>false</failOnMissingWebXml>
-      </configuration>
-    </plugin>
-  </plugins>
-</build>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.1</version>
+        <configuration>
+          <!-- das brauchts leider, sonst muessen wir ein web.xml tippen... -->
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

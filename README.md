@@ -5,7 +5,7 @@
 </center>
 
 
-# Nano Vaadin - Ramp up in a second.
+# Nano Vaadin V08 - Ramp up in a second.
 A nano project to start a Vaadin project. Perfect for Micro-UIs packed as fat jar in a docker image.
 
 ## target of this project
