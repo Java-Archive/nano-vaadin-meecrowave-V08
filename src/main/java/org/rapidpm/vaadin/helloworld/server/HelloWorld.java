@@ -10,6 +10,9 @@ import javax.servlet.annotation.WebServlet;
 
 public class HelloWorld {
 
+  private HelloWorld() {
+  }
+
   public static void main(String[] args) {
     new Meecrowave(new Meecrowave.Builder() {
       {
@@ -33,9 +36,7 @@ public class HelloWorld {
     /**
      * Start editing here to create your
      * POC based on a Vaadin App.
-     * To start the app, -> start the main Method.
-     *
-     * You will see in the log´s the randomly used port.
+     * To start the app, - start the main Method.
      *
      * @param request that is created by the first request to init the app
      */
