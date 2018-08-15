@@ -1,6 +1,6 @@
 .idea/*
 *.iml
-_data//webdrivers/
+_data/webdrivers/*
 config.properties
 
 # Created by .ignore support plugin (hsz.mobi)
@@ -162,11 +162,3 @@ dist/
 nbdist/
 .nb-gradle/
 
-chromedriver-mac-64bit
-chromedriver-mac-64bit.version
-geckodriver-mac-64bit
-geckodriver-mac-64bit.version
-operadriver-mac-64bit.version
-operadriver-mac-64bit/
-phantomjs-mac-64bit
-phantomjs-mac-64bit.version
