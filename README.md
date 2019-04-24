@@ -115,62 +115,6 @@ public class BasicTestUI extends Composite {
 }
 ```
 
-## Java, Vaadin and TDD
-For testing the Vaadin app, the Open Source project Testbench-NG is used.
-This is a jUnit5 / Webdriver - manager AddOn for the Selenium and Testbench projects.
-To read more about it, plase have a look at 
-
-[https://github.com/vaadin-developer/vaadin-testbench-ng](https://github.com/vaadin-developer/vaadin-testbench-ng)
-The lates version of Testbench NG is : 
-
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.rapidpm/rapidpm-vaadin-testbench-ng/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.rapidpm/rapidpm-vaadin-testbench-ng)
- 
-
-The next step is to create a PageObject for the UI.
-This can be done straight forward.
-
-```java
-public class BasicTestPageObject extends AbstractVaadinPageObject {
-
-  public BasicTestPageObject(WebDriver webDriver, ContainerInfo containerInfo) {
-    super(webDriver, containerInfo);
-  }
-
-  public ButtonElement button() {
-    return btn().id(BasicTestUI.BUTTON_ID);
-  }
-
-  public LabelElement counterLabel() {
-    return label().id(BasicTestUI.LABEL_ID);
-  }
-}
-```
-
-Now we can start writing logical tests. One could be 
-
-```java
-@VaadinWebUnitTest
-class BasicUnitTest {
-
-  @Test
-  void test001(BasicTestPageObject pageObject) {
-    pageObject.loadPage();
-
-    Assertions.assertEquals("0", pageObject.counterLabel().getText());
-    pageObject.button().click();
-    Assertions.assertEquals("1", pageObject.counterLabel().getText());
-    pageObject.screenshot();
-  }
-}
-```
-
-## Mutation Testing
-This project will give you the basic config for MutationTesting as well.
-Invoke the maven target **pitest:mutationCoverage** to create the report. 
-The report itself will be under **target/pit-reports**
-
-![_data/PiTest_Report_001.png](_data/PiTest_Report_001.png)
-
 Happy Coding.
 
 if you have any questions: ping me on Twitter [https://twitter.com/SvenRuppert](https://twitter.com/SvenRuppert)
